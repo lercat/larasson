@@ -37,40 +37,38 @@
                 </div>
                 @endforeach
 
-                <button class="btn btn-dark" type="submit">Questionnaire terminé</button>
-            </form>
 
+            <!-- ici mon formulaire -->
+                <div class="card mt-4">
+                    <div class="card-header">Vos informations</div>
 
-            <!-- ici mon créer un sondage-->
-            <div class="card">
-                <div class="card-header">Créer un sondage</div>
-
-                <div class="card-body">
-                    <form action="/questionnaires" method="post">
-                        @csrf
+                    <div class="card-body">
+                        
                         <div class="form-group">
-                          <label for="titre">Titre</label>
-                            <input name="titre" type="text" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Entrez le titre de votre sondage">
-                            <small id="titreHelp" class="form-text text-muted">Donnez à votre questionnaire un titre attrayant.</small>
+                            <label for="nom">Votre nom</label>
+                                <input name="sondage[nom]" type="text" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Entrez votre nom">
+                                <small id="nomHelp" class="form-text text-muted">Bonjour, quel est ton nom ?</small>
 
-                          @error('titre')
-                            <small class="text-danger">{{ $message }}</small>
-                          @enderror
+                            @error('nom')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                            <div class="form-group">
+                            <label for="email">Votre E-mail</label>
+                                <input name="sondage[email]" type="email" class="form-control" id="email" aria-describedby="emailelp" placeholder="Entrez votre E-mail">
+                                <small id="emailHelp" class="form-text text-muted">Entrez votre adresse mail - Merci.</small>
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>   
+                            
+                        <div>
+                            <button class="btn btn-dark" type="submit">Questionnaire terminé</button>
                         </div>
-
-                        <div class="form-group">
-                          <label for="objectif">Objectif</label>
-                            <input name="objectif" type="text" class="form-control" id="objectif" aria-describedby="objectfHelp" placeholder="Entrez l'objectif">
-                            <small id="objectifHelp" class="form-text text-muted">Donner un but qui augmentera les réponses.</small>
-                          @error('objectif')
-                            <small class="text-danger">{{ $message }}</small>
-                          @enderror
-                          </div>
-                          <button type="submit" class="btn btn-primary">Créer le questionnaire</button>
-                    </form>
-
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

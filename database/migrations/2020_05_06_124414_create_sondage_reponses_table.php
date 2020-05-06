@@ -15,6 +15,9 @@ class CreateSondageReponsesTable extends Migration
     {
         Schema::create('sondage_reponses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('sondage_id');
+            $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('reponse_id');
             $table->timestamps();
         });
     }

@@ -13,13 +13,20 @@ class SondageController extends Controller
         return view('sondage.show', compact('questionnaire'));
     }
 
-    public function store()
+    public function store(Questionnaire $questionnaire)
     {
         $data = request()->validate([
             'entreeReponse.*.reponse_id' => 'required',
             'entreeReponse.*.question_id' => 'required',
+            'sondage.nom' => 'required',
+            'sondage.email' => 'required|email'
         ]);
+
+        $sondage = $questionnaire->sondages()->create($data['sondage']);
+        $sondage->reponses()->createMany($data['entreeReponse']);
        // dd(request()->all());
+
+       return 'Merci beaucoup';
     }
 
 }

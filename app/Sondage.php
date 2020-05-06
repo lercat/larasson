@@ -16,8 +16,8 @@ class Sondage extends Model
     }
 
     /*un sondage a plusieurs reponses*/
-    public function responses()
+    public function reponses()
     {
-        return $this->hasMany(SondageResponse::class);
+        return $this->hasMany(SondageReponse::class);
     }
 }
