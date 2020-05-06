@@ -17,4 +17,10 @@ class Questionnaire extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    //un questionnaire à plusieurs sondages
+    public function sondages()
+    {
+        return $this->hasMany(Sondage::class);
+    }
 }
